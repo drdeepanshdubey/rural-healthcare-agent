@@ -1,0 +1,351 @@
+[
+  {
+    "timestamp": "2025-11-16T02:31:01.651484",
+    "event": "PATIENT_QUERY",
+    "agent": "System",
+    "data": {
+      "patient_id": "PATIENT_001",
+      "query": "I have severe chest pain and difficulty breathing"
+    }
+  },
+  {
+    "timestamp": "2025-11-16T02:31:06.098345",
+    "event": "AGENT_RESPONSE",
+    "agent": "IntakeAgent",
+    "data": {
+      "agent": "IntakeAgent",
+      "summary": "The patient is presenting with severe chest pain and difficulty breathing. They are currently located in Jabalpur, Madhya Pradesh. These symptoms suggest a potential medical emergency requiring immediate attention.",
+      "symptoms": "I have severe chest pain and difficulty breathing",
+      "location": "Jabalpur, Madhya Pradesh"
+    }
+  },
+  {
+    "timestamp": "2025-11-16T02:31:06.099404",
+    "event": "TOOL_USAGE",
+    "agent": "TriageAgent",
+    "data": {
+      "tool": "UrgencyAssessor",
+      "result": {
+        "urgency_level": 5,
+        "priority": "HIGH",
+        "recommendation": "Seek immediate emergency care",
+        "reason": "Critical: 'chest pain' detected - Emergency care needed"
+      }
+    }
+  },
+  {
+    "timestamp": "2025-11-16T02:31:10.317705",
+    "event": "AGENT_RESPONSE",
+    "agent": "TriageAgent",
+    "data": {
+      "agent": "TriageAgent",
+      "urgency_data": {
+        "urgency_level": 5,
+        "priority": "HIGH",
+        "recommendation": "Seek immediate emergency care",
+        "reason": "Critical: 'chest pain' detected - Emergency care needed"
+      },
+      "explanation": "This combination of severe chest pain and difficulty breathing indicates a potentially life-threatening medical emergency. These symptoms are classic indicators of conditions like a heart attack, pulmonary embolism, or acute respiratory failure, all of which require immediate medical intervention. A 5/5 urgency level signifies that the patient's life is at immediate risk and critical care is needed without delay to prevent irreversible harm or death."
+    }
+  },
+  {
+    "timestamp": "2025-11-16T02:31:10.318914",
+    "event": "TOOL_USAGE",
+    "agent": "ResourceFinderAgent",
+    "data": {
+      "tool": "HealthcareFacilitySearch",
+      "result": {
+        "location": "Jabalpur, Madhya Pradesh",
+        "urgency": "HIGH",
+        "facilities_found": 2,
+        "facilities": [
+          {
+            "name": "Civil Hospital Jabalpur",
+            "type": "Government Hospital",
+            "distance_km": 3.8,
+            "specialties": [
+              "General Medicine",
+              "Pediatrics"
+            ],
+            "contact": "0761-2677777",
+            "available_24x7": true
+          },
+          {
+            "name": "Netaji Subhash Chandra Bose Medical College",
+            "type": "Government Hospital",
+            "distance_km": 5.2,
+            "specialties": [
+              "Emergency",
+              "General Medicine",
+              "Surgery"
+            ],
+            "contact": "0761-2628073",
+            "available_24x7": true
+          }
+        ],
+        "message": "Found 2 facilities near Jabalpur, Madhya Pradesh"
+      }
+    }
+  },
+  {
+    "timestamp": "2025-11-16T02:31:13.916556",
+    "event": "AGENT_RESPONSE",
+    "agent": "ResourceFinderAgent",
+    "data": {
+      "agent": "ResourceFinderAgent",
+      "facilities": {
+        "location": "Jabalpur, Madhya Pradesh",
+        "urgency": "HIGH",
+        "facilities_found": 2,
+        "facilities": [
+          {
+            "name": "Civil Hospital Jabalpur",
+            "type": "Government Hospital",
+            "distance_km": 3.8,
+            "specialties": [
+              "General Medicine",
+              "Pediatrics"
+            ],
+            "contact": "0761-2677777",
+            "available_24x7": true
+          },
+          {
+            "name": "Netaji Subhash Chandra Bose Medical College",
+            "type": "Government Hospital",
+            "distance_km": 5.2,
+            "specialties": [
+              "Emergency",
+              "General Medicine",
+              "Surgery"
+            ],
+            "contact": "0761-2628073",
+            "available_24x7": true
+          }
+        ],
+        "message": "Found 2 facilities near Jabalpur, Madhya Pradesh"
+      },
+      "recommendation": "For HIGH urgency, proceed to **Netaji Subhash Chandra Bose Medical College**. Despite being slightly further, it is a medical college with more comprehensive facilities, specialists across various departments, and better resources for critical care compared to a general Civil Hospital, which is crucial for high-urgency situations."
+    }
+  },
+  {
+    "timestamp": "2025-11-16T02:31:13.917471",
+    "event": "AGENT_RESPONSE",
+    "agent": "TelemedicineAgent",
+    "data": {
+      "agent": "TelemedicineAgent",
+      "recommendation": "Emergency case - In-person visit required.",
+      "services": []
+    }
+  },
+  {
+    "timestamp": "2025-11-16T02:31:13.924933",
+    "event": "PATIENT_QUERY",
+    "agent": "System",
+    "data": {
+      "patient_id": "PATIENT_002",
+      "query": "Fever and cough for 3 days"
+    }
+  },
+  {
+    "timestamp": "2025-11-16T02:31:15.766827",
+    "event": "AGENT_RESPONSE",
+    "agent": "IntakeAgent",
+    "data": {
+      "agent": "IntakeAgent",
+      "summary": "Here's a brief summary of the patient's information:\n\nA patient from Jabalpur, Madhya Pradesh presents with a chief complaint of fever and cough. These symptoms have been ongoing for the past three days.",
+      "symptoms": "Fever and cough for 3 days",
+      "location": "Jabalpur, Madhya Pradesh"
+    }
+  },
+  {
+    "timestamp": "2025-11-16T02:31:15.767935",
+    "event": "TOOL_USAGE",
+    "agent": "TriageAgent",
+    "data": {
+      "tool": "UrgencyAssessor",
+      "result": {
+        "urgency_level": 3,
+        "priority": "MEDIUM",
+        "recommendation": "Schedule medical consultation soon",
+        "reason": "Moderate: 'fever' detected - Medical consultation recommended"
+      }
+    }
+  },
+  {
+    "timestamp": "2025-11-16T02:31:22.140249",
+    "event": "AGENT_RESPONSE",
+    "agent": "TriageAgent",
+    "data": {
+      "agent": "TriageAgent",
+      "urgency_data": {
+        "urgency_level": 3,
+        "priority": "MEDIUM",
+        "recommendation": "Schedule medical consultation soon",
+        "reason": "Moderate: 'fever' detected - Medical consultation recommended"
+      },
+      "explanation": "This urgency level is considered medium because \"fever and cough for 3 days\" indicates a persistent illness that warrants medical evaluation. While these symptoms are common and not immediately life-threatening without other severe signs, they could progress or be indicative of an infection requiring treatment. A consultation with a primary care doctor or urgent care within 24-48 hours is advisable."
+    }
+  },
+  {
+    "timestamp": "2025-11-16T02:31:22.141227",
+    "event": "TOOL_USAGE",
+    "agent": "ResourceFinderAgent",
+    "data": {
+      "tool": "HealthcareFacilitySearch",
+      "result": {
+        "location": "Jabalpur, Madhya Pradesh",
+        "urgency": "MEDIUM",
+        "facilities_found": 3,
+        "facilities": [
+          {
+            "name": "PHC Gwarighat",
+            "type": "Primary Health Centre",
+            "distance_km": 2.1,
+            "specialties": [
+              "General Medicine",
+              "Maternal Health"
+            ],
+            "contact": "0761-XXXXXX",
+            "available_24x7": false
+          },
+          {
+            "name": "Civil Hospital Jabalpur",
+            "type": "Government Hospital",
+            "distance_km": 3.8,
+            "specialties": [
+              "General Medicine",
+              "Pediatrics"
+            ],
+            "contact": "0761-2677777",
+            "available_24x7": true
+          },
+          {
+            "name": "Netaji Subhash Chandra Bose Medical College",
+            "type": "Government Hospital",
+            "distance_km": 5.2,
+            "specialties": [
+              "Emergency",
+              "General Medicine",
+              "Surgery"
+            ],
+            "contact": "0761-2628073",
+            "available_24x7": true
+          }
+        ],
+        "message": "Found 3 facilities near Jabalpur, Madhya Pradesh"
+      }
+    }
+  },
+  {
+    "timestamp": "2025-11-16T02:31:26.761879",
+    "event": "AGENT_RESPONSE",
+    "agent": "ResourceFinderAgent",
+    "data": {
+      "agent": "ResourceFinderAgent",
+      "facilities": {
+        "location": "Jabalpur, Madhya Pradesh",
+        "urgency": "MEDIUM",
+        "facilities_found": 3,
+        "facilities": [
+          {
+            "name": "PHC Gwarighat",
+            "type": "Primary Health Centre",
+            "distance_km": 2.1,
+            "specialties": [
+              "General Medicine",
+              "Maternal Health"
+            ],
+            "contact": "0761-XXXXXX",
+            "available_24x7": false
+          },
+          {
+            "name": "Civil Hospital Jabalpur",
+            "type": "Government Hospital",
+            "distance_km": 3.8,
+            "specialties": [
+              "General Medicine",
+              "Pediatrics"
+            ],
+            "contact": "0761-2677777",
+            "available_24x7": true
+          },
+          {
+            "name": "Netaji Subhash Chandra Bose Medical College",
+            "type": "Government Hospital",
+            "distance_km": 5.2,
+            "specialties": [
+              "Emergency",
+              "General Medicine",
+              "Surgery"
+            ],
+            "contact": "0761-2628073",
+            "available_24x7": true
+          }
+        ],
+        "message": "Found 3 facilities near Jabalpur, Madhya Pradesh"
+      },
+      "recommendation": "For a patient with medium urgency, **Civil Hospital Jabalpur (3.8km)** is the most suitable option. It is a well-equipped government hospital capable of handling a range of medical conditions, offering more comprehensive care than a PHC without the potential overcrowding of a medical college for non-critical cases."
+    }
+  },
+  {
+    "timestamp": "2025-11-16T02:31:26.762821",
+    "event": "TOOL_USAGE",
+    "agent": "TelemedicineAgent",
+    "data": {
+      "tool": "TelemedicineSearch",
+      "result": {
+        "services_available": 1,
+        "services": [
+          {
+            "name": "eSanjeevani (Government)",
+            "type": "Government Telemedicine",
+            "availability": "24x7",
+            "cost": "Free",
+            "url": "https://esanjeevani.in/",
+            "languages": [
+              "Hindi",
+              "English"
+            ],
+            "specialties": [
+              "General Medicine",
+              "Pediatrics",
+              "Gynecology"
+            ]
+          }
+        ],
+        "message": "Government telemedicine services available for free consultation"
+      }
+    }
+  },
+  {
+    "timestamp": "2025-11-16T02:31:32.701566",
+    "event": "AGENT_RESPONSE",
+    "agent": "TelemedicineAgent",
+    "data": {
+      "agent": "TelemedicineAgent",
+      "services": {
+        "services_available": 1,
+        "services": [
+          {
+            "name": "eSanjeevani (Government)",
+            "type": "Government Telemedicine",
+            "availability": "24x7",
+            "cost": "Free",
+            "url": "https://esanjeevani.in/",
+            "languages": [
+              "Hindi",
+              "English"
+            ],
+            "specialties": [
+              "General Medicine",
+              "Pediatrics",
+              "Gynecology"
+            ]
+          }
+        ],
+        "message": "Government telemedicine services available for free consultation"
+      },
+      "recommendation": "To use eSanjeevani, simply download the app or visit the website and register using your mobile number. After registering, request a token to join the virtual queue for a doctor; once connected, you'll have a video consultation and receive an e-prescription."
+    }
+  }
+]
