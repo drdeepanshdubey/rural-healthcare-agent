@@ -8,14 +8,14 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
-.Python
 
-# Environment variables (secrets!)
+# Environment variables
 .env
 *.env
 
 # Log files
 *.log
+*.json
 agent_traces.json
 rural_healthcare_agent.log
 
@@ -23,20 +23,21 @@ rural_healthcare_agent.log
 .git/
 .gitignore
 
+# Build files
+build/
+dist/
+*.spec
+*.exe
+
 # IDE
 .vscode/
 .idea/
 *.swp
-*.swo
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Documentation
-README.md
-*.md
-
-# Other
-*.sqlite
-*.db
+# PyInstaller
+*.manifest
+*.exe

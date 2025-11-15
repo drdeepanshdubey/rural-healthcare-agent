@@ -1,6 +1,5 @@
 """
 Deployment-ready web interface for Rural Healthcare Access Agent
-Can be deployed to Google Cloud Run, Render, Hugging Face, or any Python hosting
 """
 
 from flask import Flask, request, jsonify, render_template_string
@@ -12,7 +11,6 @@ load_dotenv()
 
 app = Flask(__name__)
 
-# HTML template for web interface
 HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html>
@@ -34,16 +32,16 @@ HTML_TEMPLATE = """
     
     <form id="patientForm">
         <label>Patient ID:</label>
-        <input type="text" id="patient_id" placeholder="Enter Patient ID" value="PATIENT_001" required>
+        <input type="text" id="patient_id" value="PATIENT_001" required>
         
         <label>Location:</label>
-        <input type="text" id="location" placeholder="City, State" value="Jabalpur, Madhya Pradesh" required>
+        <input type="text" id="location" value="Jabalpur, Madhya Pradesh" required>
         
         <label>Symptoms:</label>
-        <textarea id="symptoms" placeholder="Describe symptoms in detail" rows="4" required>Fever and cough for 3 days</textarea>
+        <textarea id="symptoms" rows="4" required>Fever and cough for 3 days</textarea>
         
         <label>Age:</label>
-        <input type="number" id="age" placeholder="Patient age" value="30" min="1" max="120" required>
+        <input type="number" id="age" value="30" min="1" max="120" required>
         
         <button type="submit">Get Healthcare Recommendations</button>
         <p class="loading" id="loading">⏳ Processing... Please wait...</p>
@@ -54,8 +52,6 @@ HTML_TEMPLATE = """
     <script>
         document.getElementById('patientForm').onsubmit = async (e) => {
             e.preventDefault();
-            
-            // Show loading
             document.getElementById('loading').style.display = 'block';
             document.getElementById('result').style.display = 'none';
             
@@ -74,8 +70,6 @@ HTML_TEMPLATE = """
                 });
                 
                 const result = await response.json();
-                
-                // Hide loading
                 document.getElementById('loading').style.display = 'none';
                 
                 if (response.ok) {
@@ -86,44 +80,25 @@ HTML_TEMPLATE = """
                 }
             } catch (error) {
                 document.getElementById('loading').style.display = 'none';
-                alert('Error connecting to server: ' + error.message);
+                alert('Error: ' + error.message);
             }
         };
         
         function formatResult(result) {
-            const intake = result.workflow_steps['1_intake'].summary;
             const urgency = result.workflow_steps['2_triage'].urgency_data;
-            const explanation = result.workflow_steps['2_triage'].explanation;
             const facilities = result.workflow_steps['3_resources'].facilities.facilities;
-            const recommendation = result.workflow_steps['3_resources'].recommendation;
-            const telemedicine = result.workflow_steps['4_telemedicine'].recommendation;
             
-            let html = '<h2>✅ Healthcare Assessment Complete</h2>';
-            html += '<p><strong>⏱️ Response Time:</strong> ' + result.response_time_seconds + ' seconds</p>';
-            html += '<hr>';
+            let html = '<h2>✅ Assessment Complete</h2>';
+            html += '<p><strong>⏱️ Response Time:</strong> ' + result.response_time_seconds + ' seconds</p><hr>';
+            html += '<h3>⚠️ Urgency: ' + urgency.urgency_level + '/5 (' + urgency.priority + ')</h3>';
+            html += '<p>' + urgency.recommendation + '</p>';
+            html += '<h3>🏥 Nearby Facilities:</h3><ul>';
             
-            html += '<h3>📋 Patient Intake</h3>';
-            html += '<p>' + intake + '</p>';
-            
-            html += '<h3>⚠️ Urgency Assessment</h3>';
-            html += '<p><strong>Level:</strong> ' + urgency.urgency_level + '/5</p>';
-            html += '<p><strong>Priority:</strong> ' + urgency.priority + '</p>';
-            html += '<p><strong>Recommendation:</strong> ' + urgency.recommendation + '</p>';
-            html += '<p>' + explanation + '</p>';
-            
-            html += '<h3>🏥 Nearby Healthcare Facilities</h3>';
-            html += '<ul>';
             facilities.slice(0, 3).forEach(f => {
-                html += '<li><strong>' + f.name + '</strong><br>';
-                html += 'Type: ' + f.type + ' | Distance: ' + f.distance_km + ' km | ';
-                html += '24x7: ' + (f.available_24x7 ? 'Yes' : 'No') + '</li>';
+                html += '<li><strong>' + f.name + '</strong> - ' + f.distance_km + ' km</li>';
             });
+            
             html += '</ul>';
-            html += '<p>' + recommendation + '</p>';
-            
-            html += '<h3>💻 Telemedicine Options</h3>';
-            html += '<p>' + telemedicine + '</p>';
-            
             return html;
         }
     </script>
@@ -133,12 +108,10 @@ HTML_TEMPLATE = """
 
 @app.route('/')
 def home():
-    """Web interface for agent"""
     return render_template_string(HTML_TEMPLATE)
 
 @app.route('/api/assess', methods=['POST'])
 def assess_patient():
-    """API endpoint for patient assessment"""
     try:
         data = request.json
         result = coordinator.process_patient(
@@ -153,14 +126,8 @@ def assess_patient():
 
 @app.route('/health')
 def health():
-    """Health check endpoint for cloud deployment"""
-    return jsonify({
-        'status': 'healthy',
-        'agent': 'Rural Healthcare Access Agent',
-        'version': '1.0.0'
-    })
+    return jsonify({'status': 'healthy', 'agent': 'Rural Healthcare Access Agent'})
 
 if __name__ == '__main__':
-    # For local development and cloud deployment
     port = int(os.environ.get('PORT', 8080))
     app.run(host='0.0.0.0', port=port, debug=False)
