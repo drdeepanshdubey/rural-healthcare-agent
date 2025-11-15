@@ -1,0 +1,4 @@
+*.log
+*.json
+agent_traces.json
+rural_healthcare_agent.log
