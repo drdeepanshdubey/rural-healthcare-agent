@@ -1,23 +1,13 @@
-# Use official Python runtime as base image
 FROM python:3.12-slim
+ren Dockerfile.txt Dockerfile
+git add .
+git commit -m "Add deployment files: Docker + Flask web interface"
+git push
 
-# Set working directory in container
-WORKDIR /app
-
-# Copy requirements file first (for better caching)
-COPY requirements.txt .
-
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy all project files to container
-COPY . .
-
-# Set environment variable for port
-ENV PORT=8080
-
-# Expose port 8080 for the Flask app
-EXPOSE 8080
-
-# Command to run the Flask application
-CMD ["python", "app.py"]
+(venv) C:\Users\hp\rural-healthcare-agent>ren Dockerfile.txt Dockerfile
+git add .
+git commit -m "Add deployment files: Docker + Flask web interface"
+git push
+dir *.txt
+exit
+cd C:\Users\hp\rural-healthcare-agent
