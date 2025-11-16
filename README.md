@@ -251,6 +251,23 @@ curl -X POST http://localhost:8080/api/assess
 | **Real Facility Integration** | 4 facilities | Actual Jabalpur district hospitals |
 | **Government Platform** | eSanjeevani | Official MP telemedicine service |
 
+### 📓 About the Jupyter Notebook
+
+**Note:** The repository includes a Jupyter notebook (56% of code) for **demonstration and educational purposes**. This notebook provides:
+- Interactive walkthrough of the system
+- Step-by-step agent execution
+- Live examples judges can run on Kaggle
+- Educational documentation
+
+**The production system** is the Python application:
+- `main.py` - Command-line interface (CLI)
+- `app.py` - Web server with REST API
+- `agents/`, `tools/`, `utils/` - Core system modules
+- `Dockerfile` - Production containerization
+
+The notebook does NOT replace the production code—it supplements it for clarity and accessibility.
+
+
 ### Real-World Integration
 
 ✅ **Netaji Subhash Chandra Bose Medical College** - Government medical college with 24x7 emergency  
