@@ -1,6 +1,6 @@
 [
   {
-    "timestamp": "2025-11-16T02:31:01.651484",
+    "timestamp": "2025-11-16T12:07:44.971848",
     "event": "PATIENT_QUERY",
     "agent": "System",
     "data": {
@@ -9,18 +9,18 @@
     }
   },
   {
-    "timestamp": "2025-11-16T02:31:06.098345",
+    "timestamp": "2025-11-16T12:07:50.562190",
     "event": "AGENT_RESPONSE",
     "agent": "IntakeAgent",
     "data": {
       "agent": "IntakeAgent",
-      "summary": "The patient is presenting with severe chest pain and difficulty breathing. They are currently located in Jabalpur, Madhya Pradesh. These symptoms suggest a potential medical emergency requiring immediate attention.",
+      "summary": "The patient, located in Jabalpur, Madhya Pradesh, reports experiencing severe chest pain. They are also presenting with difficulty breathing.",
       "symptoms": "I have severe chest pain and difficulty breathing",
       "location": "Jabalpur, Madhya Pradesh"
     }
   },
   {
-    "timestamp": "2025-11-16T02:31:06.099404",
+    "timestamp": "2025-11-16T12:07:50.562814",
     "event": "TOOL_USAGE",
     "agent": "TriageAgent",
     "data": {
@@ -34,7 +34,7 @@
     }
   },
   {
-    "timestamp": "2025-11-16T02:31:10.317705",
+    "timestamp": "2025-11-16T12:07:55.487756",
     "event": "AGENT_RESPONSE",
     "agent": "TriageAgent",
     "data": {
@@ -45,11 +45,11 @@
         "recommendation": "Seek immediate emergency care",
         "reason": "Critical: 'chest pain' detected - Emergency care needed"
       },
-      "explanation": "This combination of severe chest pain and difficulty breathing indicates a potentially life-threatening medical emergency. These symptoms are classic indicators of conditions like a heart attack, pulmonary embolism, or acute respiratory failure, all of which require immediate medical intervention. A 5/5 urgency level signifies that the patient's life is at immediate risk and critical care is needed without delay to prevent irreversible harm or death."
+      "explanation": "This 5/5 urgency level signifies an immediate, life-threatening medical emergency. The combination of severe chest pain and difficulty breathing are critical symptoms often signaling acute conditions like a heart attack, pulmonary embolism, or severe respiratory failure. Prompt emergency medical attention is crucial to prevent irreversible harm or fatality."
     }
   },
   {
-    "timestamp": "2025-11-16T02:31:10.318914",
+    "timestamp": "2025-11-16T12:07:55.488377",
     "event": "TOOL_USAGE",
     "agent": "ResourceFinderAgent",
     "data": {
@@ -88,7 +88,7 @@
     }
   },
   {
-    "timestamp": "2025-11-16T02:31:13.916556",
+    "timestamp": "2025-11-16T12:07:59.917861",
     "event": "AGENT_RESPONSE",
     "agent": "ResourceFinderAgent",
     "data": {
@@ -124,11 +124,11 @@
         ],
         "message": "Found 2 facilities near Jabalpur, Madhya Pradesh"
       },
-      "recommendation": "For HIGH urgency, proceed to **Netaji Subhash Chandra Bose Medical College**. Despite being slightly further, it is a medical college with more comprehensive facilities, specialists across various departments, and better resources for critical care compared to a general Civil Hospital, which is crucial for high-urgency situations."
+      "recommendation": "For high urgency, **Netaji Subhash Chandra Bose Medical College** is the recommended facility. As a medical college hospital, it offers a wider range of specialized departments, advanced diagnostic capabilities, and critical care units necessary for complex emergencies, despite being slightly further."
     }
   },
   {
-    "timestamp": "2025-11-16T02:31:13.917471",
+    "timestamp": "2025-11-16T12:07:59.918385",
     "event": "AGENT_RESPONSE",
     "agent": "TelemedicineAgent",
     "data": {
@@ -138,7 +138,7 @@
     }
   },
   {
-    "timestamp": "2025-11-16T02:31:13.924933",
+    "timestamp": "2025-11-16T12:07:59.922280",
     "event": "PATIENT_QUERY",
     "agent": "System",
     "data": {
@@ -147,18 +147,18 @@
     }
   },
   {
-    "timestamp": "2025-11-16T02:31:15.766827",
+    "timestamp": "2025-11-16T12:08:01.958752",
     "event": "AGENT_RESPONSE",
     "agent": "IntakeAgent",
     "data": {
       "agent": "IntakeAgent",
-      "summary": "Here's a brief summary of the patient's information:\n\nA patient from Jabalpur, Madhya Pradesh presents with a chief complaint of fever and cough. These symptoms have been ongoing for the past three days.",
+      "summary": "**Patient Information Summary:**\n\nA patient from Jabalpur, Madhya Pradesh, has presented with symptoms of fever and cough. These symptoms have been ongoing for the past three days.",
       "symptoms": "Fever and cough for 3 days",
       "location": "Jabalpur, Madhya Pradesh"
     }
   },
   {
-    "timestamp": "2025-11-16T02:31:15.767935",
+    "timestamp": "2025-11-16T12:08:01.959194",
     "event": "TOOL_USAGE",
     "agent": "TriageAgent",
     "data": {
@@ -172,7 +172,7 @@
     }
   },
   {
-    "timestamp": "2025-11-16T02:31:22.140249",
+    "timestamp": "2025-11-16T12:08:07.858039",
     "event": "AGENT_RESPONSE",
     "agent": "TriageAgent",
     "data": {
@@ -183,11 +183,11 @@
         "recommendation": "Schedule medical consultation soon",
         "reason": "Moderate: 'fever' detected - Medical consultation recommended"
       },
-      "explanation": "This urgency level is considered medium because \"fever and cough for 3 days\" indicates a persistent illness that warrants medical evaluation. While these symptoms are common and not immediately life-threatening without other severe signs, they could progress or be indicative of an infection requiring treatment. A consultation with a primary care doctor or urgent care within 24-48 hours is advisable."
+      "explanation": "This 3/5 urgency level is assigned because while fever and cough for three days are common symptoms, they warrant medical evaluation to rule out more serious conditions and manage persistent discomfort. It indicates the need for prompt professional advice, but generally not an immediate emergency room visit unless new, severe symptoms develop."
     }
   },
   {
-    "timestamp": "2025-11-16T02:31:22.141227",
+    "timestamp": "2025-11-16T12:08:07.859110",
     "event": "TOOL_USAGE",
     "agent": "ResourceFinderAgent",
     "data": {
@@ -237,7 +237,7 @@
     }
   },
   {
-    "timestamp": "2025-11-16T02:31:26.761879",
+    "timestamp": "2025-11-16T12:08:12.606871",
     "event": "AGENT_RESPONSE",
     "agent": "ResourceFinderAgent",
     "data": {
@@ -284,11 +284,11 @@
         ],
         "message": "Found 3 facilities near Jabalpur, Madhya Pradesh"
       },
-      "recommendation": "For a patient with medium urgency, **Civil Hospital Jabalpur (3.8km)** is the most suitable option. It is a well-equipped government hospital capable of handling a range of medical conditions, offering more comprehensive care than a PHC without the potential overcrowding of a medical college for non-critical cases."
+      "recommendation": "For medium urgency, the **Civil Hospital Jabalpur (3.8km)** is the most suitable option. It offers a broader range of services and better-equipped facilities than a PHC for such cases, without being as far or potentially as specialized as the Medical College. This provides a good balance of accessibility and comprehensive care for medium urgency."
     }
   },
   {
-    "timestamp": "2025-11-16T02:31:26.762821",
+    "timestamp": "2025-11-16T12:08:12.607419",
     "event": "TOOL_USAGE",
     "agent": "TelemedicineAgent",
     "data": {
@@ -318,7 +318,7 @@
     }
   },
   {
-    "timestamp": "2025-11-16T02:31:32.701566",
+    "timestamp": "2025-11-16T12:08:15.208472",
     "event": "AGENT_RESPONSE",
     "agent": "TelemedicineAgent",
     "data": {
@@ -345,7 +345,7 @@
         ],
         "message": "Government telemedicine services available for free consultation"
       },
-      "recommendation": "To use eSanjeevani, simply download the app or visit the website and register using your mobile number. After registering, request a token to join the virtual queue for a doctor; once connected, you'll have a video consultation and receive an e-prescription."
+      "recommendation": "To use eSanjeevani, download the app or visit the website and register with your mobile number. You can then select a specialty or doctor to initiate a video consultation with a medical professional. After the consultation, you will receive a digital prescription that can be downloaded and used."
     }
   }
 ]
